@@ -10,14 +10,11 @@ bitis_tarihi = "2025-01-01"
 # Her hisse için veri çekme
 for hisse in hisseler:
     # Veriyi çek - auto_adjust parametresini False olarak ayarla
-    veri = yf.download(hisse, start=baslangic_tarihi, end=bitis_tarihi, auto_adjust=False)
-
-    # CSV olarak kaydet
-    veri.to_csv(f"{hisse.replace('.', '_')}_{baslangic_tarihi}_{bitis_tarihi}.csv")
+    veri = yf.download(hisse, start=baslangic_tarihi, end=bitis_tarihi, auto_adjust=False) #Adj Close verileri için auto adjust false olacak
 
     # Veriyi ekrana yazdır
     print(f"\n{hisse} hisse senedi verileri (İlk 5 satır):")
     print(veri.head())
     print("-" * 50)
 
-print("\nVeriler başarıyla çekildi ve kaydedildi.")
+ 
